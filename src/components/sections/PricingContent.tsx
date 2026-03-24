@@ -21,9 +21,9 @@ export default function PricingContent() {
       {isClient && ( // Conditionally render Stripe component on client
         <>
           <Script async src="https://js.stripe.com/v3/pricing-table.js" />
-          <stripe-pricing-table
-            pricing-table-id="prctbl_1RBdLdRwjsjk6b5zBnebrq4t"
-            publishable-key="pk_live_51QkAHfRwjsjk6b5z8Xr8FzlpXxg3hyMJjEZ5BErMlSHqw52aZOtM8qNljetH17QcOg7AW4aPQcjtpeAy2BaahNJE00QLuNRy44" // Replace with your actual Key
+          <stripe-pricing-table 
+            pricing-table-id="prctbl_1TEcsMFtOsQQM30wzOlAwRTX"
+            publishable-key="pk_live_51TEZSEFtOsQQM30wGZHRYHZ24wlH2UGnU23aGHRmnxpt10cDzmKk1QbsNza4h468OwKl4WDLoulLkbYg59gYO9Pm00NHSF0Nel" // Replace with your actual Key
           />
         </>
       )}
