@@ -149,6 +149,12 @@ const NavBar: React.FC = () => {
             <NavLink sectionId="about">About</NavLink>
             <NavLink sectionId="pricing">Pricing</NavLink>
             <NavLink sectionId="contact">Contact</NavLink>
+            <a 
+            href="https://app.infuzik.com"
+            className="px-2 py-1 inline-block cursor-pointer text-charcoal dark:text-ivory hover:text-gold dark:hover:text-gold"
+            >
+              Login
+            </a>
             {/* Theme toggle remains the same */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -218,6 +224,13 @@ const NavBar: React.FC = () => {
                 >
                   Contact
                 </NavLink>
+                <a
+                href="https://app.infuzik.com"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center px-2 py-1 inline-block cursor-pointer text-charcoal dark:text-ivory hover:text-gold dark:hover:text-gold"
+                >
+                  Login
+                </a>
                 {/* Theme toggle remains the same */}
                 <button
                   onClick={() => {
