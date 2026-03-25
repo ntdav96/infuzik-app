@@ -22,7 +22,7 @@ export default function PricingContent() {
         <>
           <Script async src="https://js.stripe.com/v3/pricing-table.js" />
           <stripe-pricing-table 
-            pricing-table-id="prctbl_1TEcsMFtOsQQM30wzOlAwRTX"
+            pricing-table-id="prctbl_1TEajvFtOsQQM30wVWxR3L6H"
             publishable-key="pk_live_51TEZSEFtOsQQM30wGZHRYHZ24wlH2UGnU23aGHRmnxpt10cDzmKk1QbsNza4h468OwKl4WDLoulLkbYg59gYO9Pm00NHSF0Nel" // Replace with your actual Key
           />
         </>
