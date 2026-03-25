@@ -147,7 +147,7 @@ const NavBar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <NavLink sectionId="home">Home</NavLink>
             <NavLink sectionId="about">About</NavLink>
-            <NavLink sectionId="pricing">Pricing</NavLink>
+            <NavLink sectionId="pricing">Sign Up</NavLink>
             <NavLink sectionId="contact">Contact</NavLink>
             <a 
             href="https://app.infuzik.com"
@@ -215,7 +215,7 @@ const NavBar: React.FC = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-full text-center"
                 >
-                  Pricing
+                  Sign Up
                 </NavLink>
                 <NavLink
                   sectionId="contact"
