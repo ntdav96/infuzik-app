@@ -25,6 +25,13 @@ export default function PricingContent() {
             pricing-table-id="prctbl_1TEajvFtOsQQM30wVWxR3L6H"
             publishable-key="pk_live_51TEZSEFtOsQQM30wGZHRYHZ24wlH2UGnU23aGHRmnxpt10cDzmKk1QbsNza4h468OwKl4WDLoulLkbYg59gYO9Pm00NHSF0Nel" // Replace with your actual Key
           />
+          {/* Second Pricing Table */}
+          <div className="mt-12"> {/* Added margin-top for spacing */}
+            <stripe-pricing-table 
+              pricing-table-id="prctbl_1TQumBFtOsQQM30w4SdTGAV0"
+              publishable-key="pk_live_51TEZSEFtOsQQM30wGZHRYHZ24wlH2UGnU23aGHRmnxpt10cDzmKk1QbsNza4h468OwKl4WDLoulLkbYg59gYO9Pm00NHSF0Nel"
+            />
+          </div>
         </>
       )}
       {!isClient && ( // Optional: Show a placeholder while loading
