@@ -1,7 +1,7 @@
 'use client';
 import Button from '@/components/Button';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
+// Removed: import { useRouter } from 'next/navigation';
 
 // Animation variants for staggering children
 const containerVariants = {
@@ -9,8 +9,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2, // Stagger the animation of children
-      delayChildren: 0.1, // Small delay before children start animating
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
     },
   },
 };
@@ -29,25 +29,40 @@ const itemVariants = {
 };
 
 export default function LandingHero() {
-  const router = useRouter();
+  // Removed: const router = useRouter();
+
+  // Define the smooth scroll function locally (or move to a utils file)
+  const smoothScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 70; // Adjust based on your fixed navbar height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <div className="relative flex items-center justify-center min-h-screen overflow-hidden px-4 py-16 pt-32 sm:pt-40 md:pt-48">
       {/* Background Image (Moved & Enhanced) */}
       <div
         aria-hidden="true"
-        // Position it, ensure it's behind content, adjust opacity/blend mode
         className="absolute inset-0 -z-10 pointer-events-none"
       >
         <div className="absolute inset-0 bg-[url('/static/images/theta.svg')] bg-no-repeat bg-center bg-contain opacity-10 dark:opacity-[0.1] mix-blend-multiply dark:mix-blend-screen" />
-        {/* Optional: Add a subtle color overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-platinum/30 via-transparent to-platinum dark:from-platinum-dark/30 dark:via-transparent dark:to-platinum-dark" />
       </div>
 
       {/* Background Gradient Elements (Subtle) */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-20 transform-gpu overflow-hidden blur-3xl sm:-top-80" // Changed z-index
+        className="absolute inset-x-0 -top-40 -z-20 transform-gpu overflow-hidden blur-3xl sm:-top-80"
       >
         <div
           style={{
@@ -59,7 +74,7 @@ export default function LandingHero() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-60rem)] -z-20 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-65rem)]" // Changed z-index
+        className="absolute inset-x-0 top-[calc(100%-60rem)] -z-20 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-65rem)]"
       >
         <div
           style={{
@@ -80,12 +95,10 @@ export default function LandingHero() {
         {/* Animated Heading - Use Serif Font */}
         <motion.h1
           variants={itemVariants}
-          // Use font-serif defined in globals.css/tailwind.config.ts
           className="font-serif text-4xl font-bold tracking-tight text-charcoal dark:text-platinum sm:text-6xl lg:text-7xl leading-tight mb-6"
         >
           Your Sounds,
           <br />
-          {/* Use theme's gold color for gradient */}
           <span className="bg-gradient-to-r from-gold via-amber-400 to-gold bg-clip-text text-transparent">
             Supercharged
           </span>
@@ -94,7 +107,6 @@ export default function LandingHero() {
         {/* Animated Paragraph - Use Sans Font */}
         <motion.p
           variants={itemVariants}
-          // Ensure sans-serif font is applied (should be default from body)
           className="mt-4 text-lg leading-8 text-charcoal/80 dark:text-platinum/80 sm:text-xl md:text-2xl max-w-2xl mb-10"
         >
           Customizable binaural beats that fuse with your music—engineered for
@@ -106,9 +118,9 @@ export default function LandingHero() {
           <Button
             variant="primary"
             size="lg"
-            onClick={() => router.push('/pricing')}
+            // UPDATED: Call smoothScrollTo instead of router.push
+            onClick={() => smoothScrollTo('pricing')}
             aria-label="Begin your journey - Sign up now"
-            // Use gold shadow defined in tailwind.config.ts on hover
             className="shadow-lg hover:shadow-gold transition-shadow duration-300"
           >
             Get Started Now
